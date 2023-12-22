@@ -39,7 +39,7 @@ app.get("/charts", async (c) => {
   }
 });
 
-app.post("/create", async (c) => {
+app.post("/", async (c) => {
   try {
     const body = await c.req.json();
     const course = body.course || "Others";
@@ -71,6 +71,25 @@ app.get("/allowed-users", async (c) => {
 app.get("/:id", async (c) => {
   try {
     const data = await Plantations.findById(c.req.param("id"));
+    return c.json(data);
+  } catch (error) {
+    return c.json({ error: "Something went wrong" });
+  }
+});
+
+app.get("/", async (c) => {
+  try {
+    const data = await Plantations.aggregate([
+      {
+        $group: {
+          _id: "$slug",
+          plantsCount: { $sum: "$plants" },
+          users: { $push: "$user" },
+          images: { $push: "$images" },
+        },
+      },
+    ]);
+
     return c.json(data);
   } catch (error) {
     return c.json({ error: "Something went wrong" });
