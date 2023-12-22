@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { Plantations } from "../models";
+import { ALLOWED_PLANTATION_USERS } from "../config";
 
 const app = new Hono();
 
@@ -58,6 +59,22 @@ app.post("/create", async (c) => {
   }
 });
 
-app.get("");
+app.get("/allowed-users", async (c) => {
+  try {
+    const allowedUsers = ALLOWED_PLANTATION_USERS?.split(",");
+    return c.json({ allowedUsers });
+  } catch (error) {
+    return c.json({ error: "Something went wrong" });
+  }
+});
+
+app.get("/:id", async (c) => {
+  try {
+    const data = await Plantations.findById(c.req.param("id"));
+    return c.json(data);
+  } catch (error) {
+    return c.json({ error: "Something went wrong" });
+  }
+});
 
 export default app;
