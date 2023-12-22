@@ -7,14 +7,9 @@ const NODE_ENV = process.env.NODE_ENV!;
 const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME!;
 const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY!;
 const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET!;
+const ALLOWED_PLANTATION_USERS = process.env.ALLOWED_PLANTATION_USERS;
 
-invariant(ORIGIN, "ORIGIN env is missing");
-invariant(PORT, "PORT env is missing");
 invariant(MONGODB_URI, "MONGODB_URI env is missing");
-invariant(NODE_ENV, "NODE_ENV env is missing");
-invariant(CLOUDINARY_CLOUD_NAME, "CLOUDINARY_CLOUD_NAME env is missing");
-invariant(CLOUDINARY_API_KEY, "CLOUDINARY_API_KEY env is missing");
-invariant(CLOUDINARY_API_SECRET, "CLOUDINARY_API_SECRET env is missing");
 
 export {
   ORIGIN,
@@ -24,4 +19,5 @@ export {
   CLOUDINARY_CLOUD_NAME,
   CLOUDINARY_API_KEY,
   CLOUDINARY_API_SECRET,
+  ALLOWED_PLANTATION_USERS,
 };
