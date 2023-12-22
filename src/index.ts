@@ -6,6 +6,6 @@ connectDB();
 
 const app = new Hono();
 
-app.route("/plantations", plantations);
+app.route("/api/plantations", plantations);
 
 export default app;
