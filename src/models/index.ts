@@ -1,1 +1,1 @@
-export { Plantations } from "./plantations";
+export { Plantations, type PlantationsType } from "./plantations";

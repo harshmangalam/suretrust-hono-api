@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { InferSchemaType, model, Schema } from "mongoose";
 
 const schema = new Schema({
   course: String,
@@ -12,4 +12,5 @@ const schema = new Schema({
   },
 });
 
+export type PlantationsType = InferSchemaType<typeof schema>;
 export const Plantations = model("Plantation", schema);
