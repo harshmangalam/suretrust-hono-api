@@ -6,10 +6,6 @@ import { cors } from "hono/cors";
 
 connectDB();
 const app = new Hono();
-
-console.log(ORIGIN.split(","));
-
-console.log(ORIGIN);
 app.use(
   "/api/*",
   cors({
