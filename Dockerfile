@@ -9,3 +9,4 @@ COPY . .
 ENV NODE_ENV production
 
 CMD [ "bun", "start" ]
+EXPOSE 4000
