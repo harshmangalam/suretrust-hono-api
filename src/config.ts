@@ -1,7 +1,7 @@
 import invariant from "tiny-invariant";
 
 const ORIGIN = process.env.ORIGIN!;
-const PORT = process.env.PORT!;
+const PORT = process.env.PORT ?? 4000;
 const MONGODB_URI = process.env.MONGODB_URI!;
 const NODE_ENV = process.env.NODE_ENV!;
 const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME!;
